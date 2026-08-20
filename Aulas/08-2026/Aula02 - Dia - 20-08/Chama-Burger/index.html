@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chama Burger</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="script.js" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="cabecalho-site">
+      <nav class="barra-navegacao">
+        <a href="#" class="logo">🔥 CHAMA BURGER</a>
+        <ul class="links-menu" id="linksMenu">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#pedir" class="botao botao-nav">Peça agora</a>
+        <button class="menu-alternar" id="menuAlternar" aria-label="Abrir menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="destaque">
+        <div class="destaque-conteudo">
+          <div class="destaque-texto">
+            <h1>Burger de verdade,<br />na brasa.</h1>
+            <p>
+              Pão brioche, carne 160g grelhada na hora e ingredientes
+              fresquinhos — sem atalho, sem enrolação.
+            </p>
+            <a href="#cardapio" class="botao botao-primario">Ver cardápio</a>
+          </div>
+          <img src="./assets/icons/burger-classico.svg" alt="" />
+        </div>
+      </section>
+      <section class="cardapio" id="cardapio">
+        <h2>Nosso cardapio</h2>
+        <div class="cardapio-cartoes">
+          <!--Carrinho1-->
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone">
+              <img
+                src="./assets/icons/burger-classico.svg"
+                alt="Ilustração do burger Classico"
+              />
+            </div>
+            <h3>Classico</h3>
+            <p>Pao brioche, carne 160g, queijo, alface e tomate.</p>
+            <span class="preco">R$ 24,90</span>
+            <button
+              class="adcionar-carrinho"
+              data-name="Classico"
+              data-price="24.90"
+            >
+              Adiconar Ao Pedido
+            </button>
+          </article>
+
+          <!--Carrinho2-->
+          <article class="cardapio-cartao">
+            <span class="selo">Mais pedido</span>
+            <div class="cardapio-icone">
+              <img
+                src="assets/icons/burger-bacon.svg"
+                alt="Ilustração do burger Bacon"
+              />
+            </div>
+            <h3>Bacon</h3>
+            <p>Tudo do clássico + fatias generosas de bacon crocante.</p>
+            <span class="preco">R$ 28,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Bacon"
+              data-price="28.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+
+          <!--Carrinho3-->
+
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone">
+              <img
+                src="assets/icons/burger-veggie.svg"
+                alt="Ilustração do burger Veggie"
+              />
+            </div>
+            <h3>Veggie</h3>
+            <p>Hambúrguer de grão-de-bico, queijo, alface e cebola roxa.</p>
+            <span class="preco">R$ 26,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Veggie"
+              data-price="26.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+
+          <!--Carrinho4-->
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone cardapio-icone-combo">
+              <img src="assets/icons/fritas.svg" alt="Porção de fritas" />
+              <img src="assets/icons/bebida.svg" alt="Refrigerante gelado" />
+            </div>
+            <h3>Combo Fritas + Refri</h3>
+            <p>Fritas crocantes e um refrigerante gelado pra completar.</p>
+            <span class="preco">R$ 12,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Combo Fritas + Refri"
+              data-price="12.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+        </div>
+      </section>
+      <section class="sobre" id="sobre">
+        <div class="sobre-imagem">
+          <img src="./assets/images/sobre-burger.jpg" alt="" />
+        </div>
+        <div class="sobre-texto">
+          <span class="rotulo-secao">Nossa Historia.</span>
+          <h2>Comida de boteco, com capricho de restaurante.</h2>
+          <p>
+            O Chama Burger começou numa churrasqueira de quintal, testando
+            receitas com os amigos. Hoje, o método continua o mesmo: carne
+            grelhada na brasa, pão fresco do dia e ingredientes comprados na
+            feira — só que agora pra atender o bairro inteiro.
+          </p>
+          <a href="#cardapio" class="link-seta">Ver cardapio completo</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
