@@ -1,9 +1,18 @@
 .sobre-imagem {
   width: 800px;
   height: 500px;
-  border: 100px;
 }
 
-span{
-    color: red;
+span {
+  color: red;
+}
+
+body {
+  background: #3e3b78;
+  background: linear-gradient(
+    134deg,
+    rgba(62, 59, 120, 1) 0%,
+    rgba(49, 49, 153, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }

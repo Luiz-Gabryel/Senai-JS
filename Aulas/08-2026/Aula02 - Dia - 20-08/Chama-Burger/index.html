@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chama Burger</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="script.js" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,33 +49,34 @@
             </p>
             <a href="#cardapio" class="botao botao-primario">Ver cardápio</a>
           </div>
-          <img src="./assets/icons/burger-classico.svg" alt="" />
+          <img
+            src="assets/icons/burger-classico.svg"
+            alt="Burger Clássico na brasa"
+          />
         </div>
       </section>
+
       <section class="cardapio" id="cardapio">
-        <h2>Nosso cardapio</h2>
+        <h2>Nosso cardápio</h2>
         <div class="cardapio-cartoes">
-          <!--Carrinho1-->
           <article class="cardapio-cartao">
             <div class="cardapio-icone">
               <img
-                src="./assets/icons/burger-classico.svg"
-                alt="Ilustração do burger Classico"
+                src="assets/icons/burger-classico.svg"
+                alt="Ilustração do burger Clássico"
               />
             </div>
-            <h3>Classico</h3>
-            <p>Pao brioche, carne 160g, queijo, alface e tomate.</p>
+            <h3>Clássico</h3>
+            <p>Pão brioche, carne 160g, queijo, alface e tomate.</p>
             <span class="preco">R$ 24,90</span>
             <button
-              class="adcionar-carrinho"
-              data-name="Classico"
+              class="adicionar-carrinho"
+              data-name="Clássico"
               data-price="24.90"
             >
-              Adiconar Ao Pedido
+              Adicionar ao pedido
             </button>
           </article>
-
-          <!--Carrinho2-->
           <article class="cardapio-cartao">
             <span class="selo">Mais pedido</span>
             <div class="cardapio-icone">
@@ -97,9 +96,6 @@
               Adicionar ao pedido
             </button>
           </article>
-
-          <!--Carrinho3-->
-
           <article class="cardapio-cartao">
             <div class="cardapio-icone">
               <img
@@ -118,8 +114,6 @@
               Adicionar ao pedido
             </button>
           </article>
-
-          <!--Carrinho4-->
           <article class="cardapio-cartao">
             <div class="cardapio-icone cardapio-icone-combo">
               <img src="assets/icons/fritas.svg" alt="Porção de fritas" />
@@ -138,21 +132,120 @@
           </article>
         </div>
       </section>
+
       <section class="sobre" id="sobre">
         <div class="sobre-imagem">
-          <img src="./assets/images/sobre-burger.jpg" alt="" />
+          <img
+            src="assets/images/sobre-burger.jpg"
+            alt="Preparo do hambúrguer no Chama Burger"
+          />
         </div>
         <div class="sobre-texto">
-          <span class="rotulo-secao">Nossa Historia.</span>
-          <h2>Comida de boteco, com capricho de restaurante.</h2>
+          <span class="rotulo-secao">Nossa história</span>
+          <h2>Comida de boteco, com capricho de restaurante</h2>
           <p>
             O Chama Burger começou numa churrasqueira de quintal, testando
             receitas com os amigos. Hoje, o método continua o mesmo: carne
             grelhada na brasa, pão fresco do dia e ingredientes comprados na
             feira — só que agora pra atender o bairro inteiro.
           </p>
-          <a href="#cardapio" class="link-seta">Ver cardapio completo</a>
+          <a href="#cardapio" class="link-seta">Ver cardápio completo →</a>
         </div>
+      </section>
+
+      <section class="depoimentos" id="depoimentos">
+        <h2>Quem prova, volta</h2>
+        <div class="depoimentos-cartoes">
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-pc.png"
+              alt="Foto de Pedro Costa"
+              class="avatar"
+            />
+            <p class="citacao">
+              "Melhor bacon burger da região, sem exagero. O ponto da carne é
+              sempre perfeito."
+            </p>
+            <p class="autor">Pedro Costa <span> — cliente frequente</span></p>
+          </article>
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-mr.png"
+              alt="Foto de Marina Rocha"
+              class="avatar"
+            />
+            <p class="citacao">
+              "O veggie surpreende até quem come carne. Peço toda semana com a
+              galera do trabalho."
+            </p>
+            <p class="autor">Marina Rocha <span>— cliente frequente</span></p>
+          </article>
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-tl.png"
+              alt="Foto de Thiago Lima"
+              class="avatar"
+            />
+            <p class="citacao">
+              "Pedi pro aniversário de 20 pessoas e todo mundo elogiou. Entrega
+              rápida também."
+            </p>
+            <p class="autor">Thiago Lima <span>— cliente de evento</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reserva" id="reserva">
+        <h2>Reserve sua mesa</h2>
+        <p>
+          Prefere comer no salão? Deixe seus dados que confirmamos por telefone.
+        </p>
+        <form class="formulario-reserva" id="formulario-reserva">
+          <div class="linha-formulario">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu Nome"
+              required
+            />
+          </div>
+          <div class="linha-formulario">
+            <label for="telefone">Telefone</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(99) 99999-9999"
+              required
+            />
+          </div>
+          <div class="linha-formulario">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required />
+          </div>
+          <div class="linha-formulario">
+            <label for="pessoas">Número de pessoas</label>
+            <select name="pessoas" id="pessoas">
+              <option value="1">1 pessoa</option>
+              <option value="2">2 pessoas</option>
+              <option value="3">3 pessoas</option>
+              <option value="4">4 pessoas</option>
+              <option value="5+">5 pessoas</option>
+            </select>
+          </div>
+          <div class="linha-formulario linha-formulario-completa">
+            <label for="mensagem">Observacoes (opcional)</label>
+            <textarea name="mensagem" id="mensagem" rows="3" placeholder="Alguma preferencia ou restricao alimentar?"></textarea>
+          </div>
+          <div class="linha-formulario linha-formulario-completa">
+            <label for="foto">Foto de referencia(opcional)</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <img id="previa-foto" class="previa-foto" hidden>
+          </div>
+          <button type="submit" class="botao botao-primario formulario-enviar">Enviar reserva</button>
+        </form>
       </section>
     </main>
   </body>
