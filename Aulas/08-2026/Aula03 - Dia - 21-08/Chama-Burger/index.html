@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chama Burger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/burger-bacon.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header class="cabecalho-site">
+      <nav class="barra-navegacao">
+        <a href="#" class="logo">🔥 CHAMA BURGER</a>
+        <ul class="links-menu" id="linksMenu">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#pedir" class="botao botao-nav">Peça agora</a>
+        <button class="menu-alternar" id="menuAlternar" aria-label="Abrir menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="destaque">
+        <div class="destaque-conteudo">
+          <div class="destaque-texto">
+            <h1>Burger de verdade,<br />na brasa.</h1>
+            <p>
+              Pão brioche, carne 160g grelhada na hora e ingredientes
+              fresquinhos — sem atalho, sem enrolação.
+            </p>
+            <a href="#cardapio" class="botao botao-primario">Ver cardápio</a>
+          </div>
+          <img
+            src="assets/icons/burger-classico.svg"
+            alt="Burger Clássico na brasa"
+          />
+        </div>
+      </section>
+
+      <section class="cardapio" id="cardapio">
+        <h2>Nosso cardápio</h2>
+        <div class="cardapio-cartoes">
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone">
+              <img
+                src="assets/icons/burger-classico.svg"
+                alt="Ilustração do burger Clássico"
+              />
+            </div>
+            <h3>Clássico</h3>
+            <p>Pão brioche, carne 160g, queijo, alface e tomate.</p>
+            <span class="preco">R$ 24,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Clássico"
+              data-price="24.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+          <article class="cardapio-cartao">
+            <span class="selo">Mais pedido</span>
+            <div class="cardapio-icone">
+              <img
+                src="assets/icons/burger-bacon.svg"
+                alt="Ilustração do burger Bacon"
+              />
+            </div>
+            <h3>Bacon</h3>
+            <p>Tudo do clássico + fatias generosas de bacon crocante.</p>
+            <span class="preco">R$ 28,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Bacon"
+              data-price="28.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone">
+              <img
+                src="assets/icons/burger-veggie.svg"
+                alt="Ilustração do burger Veggie"
+              />
+            </div>
+            <h3>Veggie</h3>
+            <p>Hambúrguer de grão-de-bico, queijo, alface e cebola roxa.</p>
+            <span class="preco">R$ 26,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Veggie"
+              data-price="26.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+          <article class="cardapio-cartao">
+            <div class="cardapio-icone cardapio-icone-combo">
+              <img src="assets/icons/fritas.svg" alt="Porção de fritas" />
+              <img src="assets/icons/bebida.svg" alt="Refrigerante gelado" />
+            </div>
+            <h3>Combo Fritas + Refri</h3>
+            <p>Fritas crocantes e um refrigerante gelado pra completar.</p>
+            <span class="preco">R$ 12,90</span>
+            <button
+              class="adicionar-carrinho"
+              data-name="Combo Fritas + Refri"
+              data-price="12.90"
+            >
+              Adicionar ao pedido
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="sobre" id="sobre">
+        <div class="sobre-imagem">
+          <img
+            src="assets/images/sobre-burger.jpg"
+            alt="Preparo do hambúrguer no Chama Burger"
+          />
+        </div>
+        <div class="sobre-texto">
+          <span class="rotulo-secao">Nossa história</span>
+          <h2>Comida de boteco, com capricho de restaurante</h2>
+          <p>
+            O Chama Burger começou numa churrasqueira de quintal, testando
+            receitas com os amigos. Hoje, o método continua o mesmo: carne
+            grelhada na brasa, pão fresco do dia e ingredientes comprados na
+            feira — só que agora pra atender o bairro inteiro.
+          </p>
+          <a href="#cardapio" class="link-seta">Ver cardápio completo →</a>
+        </div>
+      </section>
+
+      <section class="depoimentos" id="depoimentos">
+        <h2>Quem prova, volta</h2>
+        <div class="depoimentos-cartoes">
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-pc.png"
+              alt="Foto de Pedro Costa"
+              class="avatar"
+            />
+            <p class="citacao">
+              "Melhor bacon burger da região, sem exagero. O ponto da carne é
+              sempre perfeito."
+            </p>
+            <p class="autor">Pedro Costa <span> — cliente frequente</span></p>
+          </article>
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-mr.png"
+              alt="Foto de Marina Rocha"
+              class="avatar"
+            />
+            <p class="citacao">
+              "O veggie surpreende até quem come carne. Peço toda semana com a
+              galera do trabalho."
+            </p>
+            <p class="autor">Marina Rocha <span>— cliente frequente</span></p>
+          </article>
+          <article class="depoimento">
+            <img
+              src="assets/images/avatar-tl.png"
+              alt="Foto de Thiago Lima"
+              class="avatar"
+            />
+            <p class="citacao">
+              "Pedi pro aniversário de 20 pessoas e todo mundo elogiou. Entrega
+              rápida também."
+            </p>
+            <p class="autor">Thiago Lima <span>— cliente de evento</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reserva" id="reserva">
+        <h2>Reserve sua mesa</h2>
+        <p>
+          Prefere comer no salão? Deixe seus dados que confirmamos por telefone.
+        </p>
+        <form class="formulario-reserva" id="formulario-reserva">
+          <div class="linha-formulario">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu Nome"
+              required
+            />
+          </div>
+          <div class="linha-formulario">
+            <label for="telefone">Telefone</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(99) 99999-9999"
+              required
+            />
+          </div>
+          <div class="linha-formulario">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required />
+          </div>
+          <div class="linha-formulario">
+            <label for="pessoas">Número de pessoas</label>
+            <select name="pessoas" id="pessoas">
+              <option value="1">1 pessoa</option>
+              <option value="2">2 pessoas</option>
+              <option value="3">3 pessoas</option>
+              <option value="4">4 pessoas</option>
+              <option value="5+">5 pessoas</option>
+            </select>
+          </div>
+          <div class="linha-formulario linha-formulario-completa">
+            <label for="mensagem">Observacoes (opcional)</label>
+            <textarea
+              name="mensagem"
+              id="mensagem"
+              rows="3"
+              placeholder="Alguma preferencia ou restricao alimentar?"
+            ></textarea>
+          </div>
+          <div class="linha-formulario linha-formulario-completa">
+            <label for="foto">Foto de referencia(opcional)</label>
+            <input type="file" id="foto" name="foto" accept="image/*" />
+            <img id="previa-foto" class="previa-foto" hidden />
+          </div>
+          <button type="submit" class="botao botao-primario formulario-enviar">
+            Enviar reserva
+          </button>
+        </form>
+        <div class="confirmacao-acao" id="confirmacao-acao"></div>
+      </section>
+      <section>
+        <section class="chamada-acao" id="pedir">
+          <h2>Bateu a fome?</h2>
+          <p>
+            Peça pelo delivery ou venha comer no salão — abrimos todos os dias,
+            das 18h à meia-noite.
+          </p>
+          <a
+            href="https://wa.me/5511989017556"
+            class="botao botao-realce"
+            target="_blank"
+            >Peça pelo WhatsApp</a
+          >
+        </section>
+      </section>
+    </main>
+    <footer class="rodape-site" id="contato">
+      <div class="rodape-info">
+        <p>
+          &copy; 2026 Chama Burger — Rua das Brasas, 123, São Caetano do Sul
+        </p>
+        <p class="rodape-horario">Todos os dias, das 18h à meia-noite</p>
+      </div>
+
+      <ul class="rodape-links">
+        <li>
+          <a
+            href="https://www.instagram.com/luizgabryel27"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i><span>Instagram</span></a
+          >
+        </li>
+        <li>
+          <a href="#" aria-label="Facebook" target="_blank"
+            ><i class="fa-brands fa-facebook"></i><span>Facebook</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://wa.me/5511989017556"
+            aria-label="WhatsApp"
+            target="_blank"
+            ><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a
+          >
+        </li>
+        <li>
+          <a href="#" aria-label="TikTok" target="_blank"
+            ><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a
+          >
+        </li>
+        <li>
+          <a href="#" aria-label="Ver no mapa" target="_blank"
+            ><i class="fa-solid fa-location-dot"></i><span>Ver no mapa</span></a
+          >
+        </li>
+      </ul>
+    </footer>
+    <div class="resumo-carrinho" id="resumoCarrinho">
+      <span class="carrinho-icone">🛒</span>
+      <span id="carrinhoQuantidade">0</span> itens ·
+      <span id="carrinhoTotal">R$ 0,00</span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

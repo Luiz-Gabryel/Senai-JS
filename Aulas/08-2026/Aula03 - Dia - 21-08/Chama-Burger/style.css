@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #e63946; /* vermelho principal — usado nos botões .botao-nav, .botao-primario:hover-shadow, .preco, .selo, .chamada-acao, etc */
+  --color-primary-dark: #c1272d; /* vermelho mais escuro — reservado pra estados de hover mais fortes */
+  --color-accent: #f4a300; /* amarelo/mostarda — cor do <h1> dentro de .destaque e do .botao-primario */
+  --color-dark: #201a17; /* quase-preto — fundo do <header class="cabecalho-site"> e do <footer class="rodape-site"> */
+  --color-light: #fff7ed; /* creme — fundo dos cards .cardapio-cartao e .depoimento */
+  --color-gray: #6b7280;
+  --radius: 14px;
+  --font-title: "Anton", Impact, sans-serif;
+  --font-base: "Inter", Roboto, Helvetica, arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.botao-nav {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 10px 22px;
+}
+
+.cabecalho-site {
+  background-color: var(--color-dark);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.barra-navegacao {
+  max-width: 100px;
+  color: #fff;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+}
