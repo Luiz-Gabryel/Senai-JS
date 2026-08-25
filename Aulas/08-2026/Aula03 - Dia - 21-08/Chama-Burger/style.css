@@ -1,147 +1,572 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+
+/* ---------- 1. Reset + Variaveis ---------- */
+
+:root {                                            /* :root = elemento raiz do HTML (o <html>); as variáveis abaixo ficam disponíveis pra qualquer seletor deste arquivo */
+  --color-primary: #E63946;                        /* vermelho principal — usado nos botões .botao-nav, .botao-primario:hover-shadow, .preco, .selo, .chamada-acao, etc */
+  --color-primary-dark: #C1272D;                   /* vermelho mais escuro — reservado pra estados de hover mais fortes */
+  --color-accent: #F4A300;                         /* amarelo/mostarda — cor do <h1> dentro de .destaque e do .botao-primario */
+  --color-dark: #201A17;                           /* quase-preto — fundo do <header class="cabecalho-site"> e do <footer class="rodape-site"> */
+  --color-light: #FFF7ED;                          /* creme — fundo dos cards .cardapio-cartao e .depoimento */
+  --color-gray: #6b7280;                           /* cinza — cor dos parágrafos secundários (.cardapio-cartao p, .sobre-texto p, .rodape-horario) */
+  --radius: 14px;                                  /* raio padrão de cantos arredondados — reaproveitado em .cardapio-cartao, .sobre-imagem img, .confirmacao-reserva */
+  --font-titulo: 'Anton', Impact, sans-serif;       /* fonte "chapada" usada nos títulos (h1, h2, h3, .logo) */
+  --font-base: 'Inter', Roboto, Helvetica, Arial, sans-serif; /* fonte usada no texto corrido (body, botões, formulário) */
 }
 
-:root {
-  --color-primary: #e63946; /* vermelho principal — usado nos botões .botao-nav, .botao-primario:hover-shadow, .preco, .selo, .chamada-acao, etc */
-  --color-primary-dark: #c1272d; /* vermelho mais escuro — reservado pra estados de hover mais fortes */
-  --color-accent: #f4a300; /* amarelo/mostarda — cor do <h1> dentro de .destaque e do .botao-primario */
-  --color-dark: #201a17; /* quase-preto — fundo do <header class="cabecalho-site"> e do <footer class="rodape-site"> */
-  --color-light: #fff7ed; /* creme — fundo dos cards .cardapio-cartao e .depoimento */
-  --color-gray: #6b7280;
-  --radius: 14px;
-  --font-title: "Anton", Impact, sans-serif;
-  --font-base: "Inter", Roboto, Helvetica, arial, sans-serif;
+* {                                                 /* * = TODOS os elementos do HTML, sem exceção */
+  margin: 0;                                        /* zera a margem padrão que cada navegador dá a tags como h1, p, ul */
+  padding: 0;                                        /* zera o padding padrão (ex.: o recuo que <ul> tem por causa das bolinhas) */
+  box-sizing: border-box;                             /* padding e border passam a contar DENTRO da largura definida, não somam a ela */
 }
 
-body {
-  font-family: var(--font-base);
-  color: var(--color-dark);
-  line-height: 1.6;
+body {                                              /* <body> — envolve todo o conteúdo visível da página */
+  font-family: var(--font-base);                     /* aplica a fonte padrão a todo texto que não sobrescrever isso depois */
+  color: var(--color-dark);                          /* cor do texto padrão do site inteiro */
+  line-height: 1.6;                                  /* espaçamento entre linhas, deixa parágrafos mais respiráveis */
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-title);
-  font-weight: 400;
-  letter-spacing: 0.5px;
+h1, h2, h3 {                                        /* qualquer <h1>/<h2>/<h3> do HTML (títulos do destaque, cardápio, sobre, depoimentos, reserva, chamada de ação) */
+  font-family: var(--font-titulo);                   /* troca pra fonte "chapada" (Anton) só nos títulos */
+  font-weight: 400;                                   /* Anton já é bem "grossa" visualmente, então usamos peso normal */
+  letter-spacing: 0.5px;                              /* espaçamento extra entre letras, ajuda a legibilidade da fonte condensada */
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+a {                                                  /* todo <a> do HTML: .logo, .links-menu a, .link-seta, .rodape-links a, .botao etc */
+  text-decoration: none;                              /* remove o sublinhado azul padrão dos links */
+  color: inherit;                                     /* o link usa a cor do elemento pai em vez do azul/roxo padrão do navegador */
 }
 
-ul {
-  list-style: none;
+ul {                                                 /* <ul class="links-menu"> e <ul class="rodape-links"> */
+  list-style: none;                                   /* remove as bolinhas (marcadores) de lista */
 }
 
-img {
-  max-width: 100%;
-  display: block;
+img {                                                /* toda <img> do HTML: destaque-imagem img, avatar, sobre-imagem img, cardapio-icone img, previa-foto */
+  max-width: 100%;                                    /* a imagem nunca ultrapassa a largura do elemento pai (evita "vazar" o layout) */
+  display: block;                                     /* tira o espaço fantasma que <img> tem por padrão (por ser inline como texto) */
 }
 
-.botao-nav {
-  background-color: var(--color-primary);
-  color: #fff;
-  padding: 10px 22px;
+/* ---------- 2. Botoes + Header / Navbar ---------- */
+
+
+
+.botao-nav {                                        /* botão "Peça agora" dentro de <nav class="barra-navegacao"> (index.html) */
+  background: var(--color-primary);                   /* fundo vermelho, se destaca no header escuro */
+  color: #fff;                                        /* texto branco, contraste com o fundo vermelho */
+  padding: 10px 22px;                                  /* padding menor que o .botao genérico, botão da barra de navegação é mais compacto */
 }
 
-.cabecalho-site {
-  background-color: var(--color-dark);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.cabecalho-site {                                   /* <header class="cabecalho-site"> — envolve toda a barra de navegação */
+  background: var(--color-dark);                      /* fundo escuro do cabeçalho, contrasta com o resto da página */
+  position: sticky;                                    /* gruda no topo ao rolar a página, mas mantém o lugar normal antes disso */
+  top: 0;                                              /* distância do topo em que ele "gruda" (0 = encostado no topo da janela) */
+  z-index: 10;                                         /* garante que o header fique por CIMA do conteúdo das seções ao rolar */
 }
 
-.barra-navegacao {
-  max-width: 1100px;
-  color: #fff;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
+.barra-navegacao {                                  /* <nav class="barra-navegacao"> dentro do cabecalho-site — contém logo, links e botão */
+  max-width: 1100px;                                   /* largura máxima do conteúdo, igual usada em .cardapio, .sobre, .depoimentos */
+  margin: 0 auto;                                      /* centraliza a barra de navegação horizontalmente dentro do header */
+  display: flex;                                       /* coloca logo + menu + botão lado a lado, na mesma linha */
+  align-items: center;                                 /* alinha os três verticalmente ao centro */
+  justify-content: space-between;                      /* logo na ponta esquerda, botão na ponta direita, menu no meio */
+  padding: 18px 24px;                                  /* respiro interno da barra de navegação em relação às bordas da tela */
+}
+.logo {                                             /* <a class="logo">🔥 CHAMA BURGER</a> dentro da barra de navegação */
+  font-family: var(--font-titulo);                     /* usa a fonte de título mesmo sendo um <a> */
+  font-size: 1.4rem;                                    /* tamanho do texto do logo */
+  color: #fff;                                          /* logo branco sobre o fundo escuro do header */
+  letter-spacing: 1px;                                  /* espaçamento entre letras do nome da marca */
+}
+.links-menu {                                       /* <ul class="links-menu" id="linksMenu"> — a lista de links do menu */
+  display: flex;                                       /* os <li> ficam em linha, lado a lado, em vez de empilhados */
+  gap: 32px;                                            /* espaço entre cada link, sem precisar de margin em cada <li> */
+}
+.links-menu a {                                     /* cada <a> dentro dos <li> de .links-menu */
+  color: #e8d9cd;                                      /* bege claro, cor padrão dos links do menu */
+  font-weight: 500;                                     /* peso médio, um pouco mais forte que o texto comum */
+}
+.links-menu a:hover {                               /* quando o mouse passa sobre um link do menu */
+  color: #fff;                                          /* fica branco puro, dando destaque visual */
 }
 
-.logo {
-  font-family: var(--font-title);
-  font-size: 1.4rem;
-  color: #fff;
-  letter-spacing: 1px;
+/* ---------- 3. Destaque / Hero (com técnica de fundo full-width) ---------- */
+
+.botao-primario {                                   /* botão "Ver cardápio" (destaque) e "Confirmar reserva" (formulario-enviar) no index.html */
+  background: var(--color-accent);                    /* fundo amarelo/mostarda, cor de destaque do site */
+  color: var(--color-dark);                            /* texto escuro sobre o fundo claro, garante contraste */
+}
+.botao-primario:hover {                             /* hover do botão amarelo */
+  box-shadow: 0 8px 20px rgba(244, 163, 0, 0.4);       /* sombra amarela suave, reforça o efeito de "subir" do .botao:hover */
 }
 
-.links-menu {
-  display: flex;
-  gap: 32px;
+.destaque {                                         /* <section class="destaque"> — a faixa de destaque logo após o header */
+  background: linear-gradient(135deg, var(--color-dark), #3a241a); /* gradiente escuro que pinta TODA a largura da seção */
+  width: 100%;                                         /* ocupa 100% da largura da tela (comportamento padrão de <section>, reforçado aqui) */
+  padding: 80px 24px;                                  /* respiro vertical grande + margem lateral mínima em telas estreitas */
 }
 
-.links-menu a {
-  color: #e8d9cd;
-  font-weight: 500;
-  transition: 1s;
+.destaque-conteudo {                                /* <div class="destaque-conteudo"> dentro de .destaque — organiza o CONTEÚDO, separado do fundo */
+  max-width: 1100px;                                   /* limita a largura do conteúdo, mesmo com o fundo (.destaque) ocupando a tela toda */
+  margin: 0 auto;                                      /* centraliza o conteúdo dentro da faixa colorida */
+  display: flex;                                       /* coloca .destaque-texto e .destaque-imagem lado a lado */
+  align-items: center;                                 /* alinha texto e imagem verticalmente ao centro */
+  justify-content: center;                             /* centraliza o bloco todo horizontalmente */
+  gap: 48px;                                            /* espaço entre o texto e a imagem do destaque */
+  color: #fff;                                          /* cor de texto padrão branca dentro do destaque (sobrescrita pelo h1 abaixo) */
+}
+.destaque-texto {                                   /* <div class="destaque-texto"> — coluna com h1, p e botão "Ver cardápio" */
+  flex: 1 1 400px;                                     /* cresce, encolhe, mas "quer" pelo menos 400px de largura */
+}
+.destaque h1 {                                      /* o <h1> dentro de .destaque (título principal da página) */
+  font-size: 3rem;                                     /* tamanho grande, é o maior título da página */
+  line-height: 1.15;                                    /* linhas mais "coladas", comum em títulos grandes */
+  margin-bottom: 20px;                                  /* espaço entre o título e o parágrafo abaixo */
+  color: var(--color-accent);                           /* sobrescreve o branco de .destaque-conteudo com o amarelo de destaque */
+}
+.destaque p {                                       /* o <p> de descrição dentro de .destaque-texto */
+  font-size: 1.15rem;                                   /* um pouco maior que o texto comum do site */
+  color: #e8d9cd;                                       /* bege claro, mesma cor usada nos links do menu */
+  max-width: 480px;                                     /* impede que a linha de texto fique longa demais e difícil de ler */
+  margin-bottom: 32px;                                  /* espaço antes do botão "Ver cardápio" */
+}
+.destaque-imagem {                                  /* <div class="destaque-imagem"> — contém a <img> da ilustração do hambúrguer */
+  flex: 1 1 260px;                                     /* mesma lógica do .destaque-texto, mas com base menor (260px) */
+  max-width: 300px;                                     /* trava o tamanho máximo da coluna da imagem */
+}
+.destaque-imagem img {                              /* a <img> específica dentro de .destaque-imagem */
+  width: 100%;                                          /* preenche toda a largura disponível do .destaque-imagem */
+  height: auto;                                          /* mantém a proporção original da imagem, sem esticar/achatar */
 }
 
-.links-menu a:hover {
-  color: #fff;
-  transform: scale(1.2);
-  display: inline-block;
+/* ---------- 4. Cardapio (Flexbox + Box Model + position) ---------- */
+.cardapio {                                         /* <section class="cardapio" id="cardapio"> — seção do cardápio */
+  max-width: 1100px;                                   /* mesma largura de conteúdo usada na barra de navegação/destaque-conteudo */
+  margin: 0 auto;                                      /* centraliza a seção na página */
+  padding: 80px 24px;                                  /* respiro vertical grande entre seções + margem lateral mínima */
+  text-align: center;                                   /* centraliza o <h2> "Nosso Cardápio" */
+}
+.cardapio h2 {                                      /* o <h2> dentro de .cardapio */
+  font-size: 2.2rem;                                    /* tamanho padrão de título de seção (repetido em .depoimentos h2, .reserva h2, .chamada-acao h2) */
+  margin-bottom: 48px;                                  /* espaço grande antes dos cards do cardápio */
 }
 
-.botao-primario {
-  background: var(--color-accent);
-  color: var(--color-dark);
-  padding: 10px 22px;
-  transition: 1s;
+.cardapio-cartoes {                                 /* <div class="cardapio-cartoes"> — contém os quatro <article class="cardapio-cartao"> */
+  display: flex;                                       /* coloca os cards lado a lado */
+  gap: 24px;                                            /* espaço entre cada card */
+  flex-wrap: wrap;                                      /* deixa os cards quebrarem linha em telas menores, em vez de espremer */
+  justify-content: center;                              /* centraliza os cards quando sobra espaço na linha */
 }
 
-.botao-primario:hover {
-  box-shadow: 0 8px 20px rgba(244, 163, 0, 0.4);
+.cardapio-cartao {                                  /* cada <article class="cardapio-cartao"> (Clássico, Bacon, Veggie, Combo) */
+  background: var(--color-light);                      /* fundo creme, diferencia o card do fundo branco da página */
+  border-radius: var(--radius);                        /* cantos arredondados, mesmo raio padrão do site */
+  padding: 28px;                                       /* espaço interno do card */
+  flex: 1 1 220px;                                      /* cresce/encolhe, mas quer pelo menos 220px de largura */
+  max-width: 260px;                                     /* impede que o card fique largo demais quando sobra espaço */
+  position: relative;                                    /* cria a "referência" pro <span class="selo"> (position: absolute) se posicionar em relação a ESTE card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* anima suavemente o hover abaixo */
+}
+.cardapio-cartao:hover {                            /* quando o mouse passa sobre um card do cardápio */
+  transform: translateY(-6px);                        /* levanta o card 6px, efeito de destaque */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);         /* sombra suave que reforça a sensação de "levantado" */
 }
 
-.destaque {
-  background: linear-gradient(135deg, var(--color-dark), #3a241a);
-  width: 100%;
-  padding: 80px 24px;
+.selo {                                             /* <span class="selo">Mais pedido</span> — só existe no card "Bacon" do index.html */
+  position: absolute;                                  /* sai do fluxo normal, não empurra o h3/p do card pra baixo */
+  top: -10px;                                           /* sobe 10px pra fora do topo do card (por causa do position: relative do .cardapio-cartao) */
+  right: 16px;                                          /* fica encostado perto da borda direita do card */
+  background: var(--color-primary);                     /* fundo vermelho, chama atenção */
+  color: #fff;                                           /* texto branco sobre o fundo vermelho */
+  font-size: 0.7rem;                                     /* texto pequeno, é só um selo, não deve competir com o título do card */
+  font-weight: 700;                                      /* bem forte, pra ficar legível mesmo pequeno */
+  text-transform: uppercase;                             /* força o texto em maiúsculas ("MAIS PEDIDO") */
+  letter-spacing: 0.5px;                                 /* espaçamento entre letras, ajuda a leitura em maiúsculas */
+  padding: 6px 14px;                                     /* espaço interno do selo */
+  border-radius: 999px;                                  /* formato de "pílula", igual aos botões */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);             /* sombra leve, dá profundidade ao selo */
 }
 
-.destaque-conteudo {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  color: #fff;
+.cardapio-icone {                                   /* <div class="cardapio-icone"> que envolve a <img> de cada sabor de burger */
+  width: 100%;                                          /* ocupa toda a largura do .cardapio-cartao */
+  height: 140px;                                        /* altura fixa, garante que todos os cards fiquem com a mesma altura de imagem */
+  margin-bottom: 16px;                                   /* espaço entre o ícone e o <h3> do nome do burger */
+}
+.cardapio-icone img {                               /* a <img> da ilustração dentro de .cardapio-icone */
+  width: 100%;                                          /* preenche a largura da caixa do ícone */
+  height: 100%;                                          /* preenche a altura fixa de 140px definida acima */
+  object-fit: contain;                                   /* evita esticar/distorcer a imagem caso a proporção não bata com 140px */
+}
+.cardapio-icone-combo {                             /* <div class="cardapio-icone cardapio-icone-combo"> — usado só no card "Combo Fritas + Refri" */
+  display: flex;                                         /* coloca as duas imagens (fritas + refri) lado a lado */
+  align-items: flex-end;                                 /* alinha as imagens pela base, como se estivessem "na mesa" */
+  justify-content: center;                               /* centraliza o par de imagens horizontalmente */
+  gap: 8px;                                              /* pequeno espaço entre as duas imagens do combo */
+}
+.cardapio-icone-combo img {                         /* cada <img> dentro do combo (duas imagens, ao contrário do .cardapio-icone normal) */
+  width: 48%;                                            /* cada imagem ocupa quase metade da largura, sobra espaço pro gap */
+  height: 100%;                                          /* preenche a altura do .cardapio-icone-combo */
+  object-fit: contain;                                   /* mesma proteção contra distorção usada em .cardapio-icone img */
+}
+.cardapio-cartao h3 {                               /* o <h3> com o nome do burger dentro do card */
+  font-size: 1.3rem;                                     /* tamanho do nome do produto */
+  margin-bottom: 8px;                                    /* espaço entre o nome e a descrição */
+}
+.cardapio-cartao p {                                /* o <p> de descrição do burger dentro do card */
+  color: var(--color-gray);                              /* cinza, texto secundário */
+  font-size: 0.9rem;                                      /* um pouco menor que o texto padrão */
+  margin-bottom: 16px;                                    /* espaço antes do preço */
+  min-height: 48px;                                       /* garante altura mínima, evita cards "tortos" quando a descrição é curta */
+}
+.preco {                                            /* <span class="preco">R$ 24,90</span> em cada card */
+  font-family: var(--font-titulo);                        /* usa a fonte de título, dá destaque ao valor */
+  color: var(--color-primary);                            /* vermelho, chama atenção pro preço */
+  font-size: 1.3rem;                                       /* tamanho maior que o texto normal do card */
 }
 
-.destaque-texto {
-  flex: 1 1 400px;
+/* ---------- 5. Sobre (imagem + texto, 2 colunas) ---------- */
+.sobre {                                            /* <section class="sobre" id="sobre"> — seção "Nossa história" */
+  max-width: 1100px;                                   /* mesma largura de conteúdo do resto do site */
+  margin: 0 auto;                                       /* centraliza a seção */
+  padding: 60px 24px;                                   /* respiro vertical/horizontal da seção */
+  display: flex;                                        /* coloca .sobre-imagem e .sobre-texto lado a lado */
+  align-items: center;                                  /* alinha as duas colunas verticalmente ao centro */
+  gap: 56px;                                            /* espaço entre a imagem e o texto */
+}
+.sobre-texto {                                      /* <div class="sobre-texto"> — coluna com rotulo-secao, h2, parágrafos e link */
+  flex: 1 1 400px;                                      /* cresce/encolhe, quer pelo menos 400px */
+}
+.rotulo-secao {                                     /* <span class="rotulo-secao">Nossa história</span> */
+  display: inline-block;                                 /* permite aplicar margin-bottom, que <span> normalmente ignora */
+  font-family: var(--font-base);                          /* usa a fonte de texto, não a de título */
+  font-size: 0.8rem;                                      /* texto pequeno, é só um rótulo acima do título */
+  font-weight: 600;                                       /* um pouco mais forte que o texto comum */
+  color: var(--color-primary);                             /* vermelho, mesma cor de destaque usada no resto do site */
+  text-transform: uppercase;                               /* força maiúsculas */
+  letter-spacing: 1px;                                     /* espaçamento entre letras, comum em rótulos/etiquetas */
+  margin-bottom: 12px;                                     /* espaço antes do <h2> da seção */
+}
+.sobre-texto h2 {                                   /* o <h2> dentro de .sobre-texto */
+  font-size: 1.8rem;                                       /* menor que os h2 centralizados (.cardapio h2 etc), pois fica ao lado da imagem */
+  margin-bottom: 16px;                                     /* espaço antes do primeiro parágrafo */
+}
+.sobre-texto p {                                    /* os <p> dentro de .sobre-texto */
+  color: var(--color-gray);                                /* cinza, texto secundário */
+  margin-bottom: 20px;                                     /* espaço entre parágrafos e antes do link "Ver cardápio completo" */
+}
+.link-seta {                                        /* <a class="link-seta">Ver cardápio completo →</a> */
+  color: var(--color-primary);                             /* vermelho, indica que é um link clicável */
+  font-weight: 600;                                        /* mais forte que texto comum */
+}
+.link-seta:hover {                                  /* hover do link com seta */
+  text-decoration: underline;                              /* sublinha ao passar o mouse, reforça que é clicável */
+}
+.sobre-imagem {                                     /* <div class="sobre-imagem"> — coluna com a foto da seção "Sobre" */
+  flex: 1 1 400px;                                         /* mesma proporção da coluna de texto */
+}
+.sobre-imagem img {                                 /* a <img> dentro de .sobre-imagem */
+  border-radius: var(--radius);                             /* cantos arredondados, mesmo raio padrão do site */
+  width: 100%;                                              /* preenche toda a largura da coluna */
+  height: auto;                                             /* mantém a proporção original da foto */
 }
 
-.destaque h1 {
-  font-size: 3rem;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  color: var(--color-accent);
+/* ---------- 6. Depoimentos (avatares + box model) ---------- */
+.depoimentos {                                      /* <section class="depoimentos" id="depoimentos"> */
+  max-width: 1100px;                                       /* mesma largura de conteúdo do resto do site */
+  margin: 0 auto;                                          /* centraliza a seção */
+  padding: 60px 24px;                                      /* respiro vertical/horizontal */
+  text-align: center;                                      /* centraliza o <h2> da seção */
+}
+.depoimentos h2 {                                   /* o <h2> "O que dizem" (ou similar) dentro de .depoimentos */
+  font-size: 2.2rem;                                       /* mesmo tamanho padrão de título de seção */
+  margin-bottom: 48px;                                     /* espaço antes dos cards de depoimento */
+}
+.depoimentos-cartoes {                              /* <div class="depoimentos-cartoes"> — contém os três <article class="depoimento"> */
+  display: flex;                                           /* cards lado a lado */
+  gap: 24px;                                               /* espaço entre eles */
+  flex-wrap: wrap;                                         /* quebra linha em telas menores */
+  justify-content: center;                                 /* centraliza quando sobra espaço */
+}
+.depoimento {                                       /* cada <article class="depoimento"> (Pedro, Marina, Thiago) */
+  background: var(--color-light);                          /* mesmo fundo creme usado no .cardapio-cartao */
+  border-radius: var(--radius);                            /* cantos arredondados padrão */
+  padding: 32px;                                           /* espaço interno do card de depoimento */
+  flex: 1 1 280px;                                         /* cresce/encolhe, quer pelo menos 280px */
+  max-width: 320px;                                        /* largura máxima do card */
+  text-align: left;                                        /* texto alinhado à esquerda (a seção pai está centralizada, mas o card não) */
+}
+.avatar {                                           /* <img class="avatar"> — foto do cliente dentro de cada .depoimento */
+  width: 56px;                                             /* largura fixa do avatar */
+  height: 56px;                                            /* altura igual à largura, necessário pro border-radius virar círculo */
+  border-radius: 50%;                                       /* com width = height, 50% transforma o quadrado em círculo perfeito */
+  margin-bottom: 16px;                                      /* espaço entre o avatar e a citação */
+}
+.citacao {                                          /* <p class="citacao"> — a frase do depoimento */
+  font-style: italic;                                       /* itálico, convenção visual pra citações */
+  color: var(--color-dark);                                 /* usa a cor escura padrão do texto */
+  margin-bottom: 16px;                                      /* espaço antes do nome do autor */
+}
+.autor {                                            /* <p class="autor"> — nome do cliente */
+  font-weight: 600;                                         /* nome em destaque, mais forte que o texto comum */
+  font-size: 0.9rem;                                        /* levemente menor que o texto padrão */
+}
+.autor span {                                       /* o <span> dentro de .autor (ex: "— cliente frequente") */
+  font-weight: 400;                                         /* peso normal, contrasta com o nome em negrito */
+  color: var(--color-gray);                                 /* cinza, indica que é uma informação secundária */
 }
 
-.destaque p {
-  font-size: 1.15rem;
-  color: #e8d9cd;
-  max-width: 480px;
-  margin-bottom: 32px;
+/* ---------- 7. Reserva (formulário) ---------- */
+.reserva {                                          /* <section class="reserva" id="reserva"> */
+  max-width: 700px;                                        /* mais estreita que as outras seções, formulário não precisa de linhas longas */
+  margin: 0 auto;                                          /* centraliza a seção */
+  padding: 60px 24px;                                      /* respiro vertical/horizontal */
+  text-align: center;                                      /* centraliza o h2 e o parágrafo de introdução */
+}
+.reserva h2 {                                       /* o <h2> "Reserve sua mesa" dentro de .reserva */
+  font-size: 2.2rem;                                       /* mesmo tamanho padrão de título de seção */
+  margin-bottom: 12px;                                     /* espaço menor, pois vem um parágrafo logo depois */
+}
+.reserva > p {                                      /* o <p> que é FILHO DIRETO de .reserva (o texto de intro, não os <p> internos do form) */
+  color: var(--color-gray);                                /* cinza, texto secundário */
+  margin-bottom: 32px;                                     /* espaço antes do formulário */
 }
 
-.destaque-imagem {
-  max-width: 300px;
-  flex: 1 1 260px;
+.formulario-reserva {                               /* <form class="formulario-reserva" id="formularioReserva"> */
+  display: flex;                                           /* organiza as .linha-formulario em linha */
+  flex-wrap: wrap;                                         /* quebra os campos em várias linhas quando não cabem */
+  gap: 20px;                                               /* espaço entre os campos do formulário */
+  text-align: left;                                        /* o formulário em si NÃO fica centralizado, mesmo dentro de .reserva */
+}
+.linha-formulario {                                 /* cada <div class="linha-formulario"> (nome, telefone, data, pessoas) */
+  flex: 1 1 220px;                                         /* quer pelo menos 220px — em telas largas cabem 2 por linha, em estreitas empilham sozinhos */
+  display: flex;                                           /* organiza label e input na vertical (ver flex-direction abaixo) */
+  flex-direction: column;                                  /* label em cima, campo embaixo */
+  gap: 6px;                                                /* espaço pequeno entre o label e o campo */
+}
+.linha-formulario-completa {                        /* <div class="linha-formulario linha-formulario-completa"> — usado na mensagem/observações e no arquivo de foto */
+  flex: 1 1 100%;                                          /* ocupa a linha inteira do formulário, não divide espaço com outro campo */
 }
 
-.destaque-imagem img {
-  width: 100%;
-  height: auto;
+.linha-formulario label {                           /* o <label> dentro de cada .linha-formulario */
+  font-weight: 600;                                        /* rótulo do campo em destaque */
+  font-size: 0.9rem;                                       /* levemente menor que o texto padrão */
+}
+
+.linha-formulario input,                            /* <input> de nome, telefone, data e arquivo de foto */
+.linha-formulario select,                           /* <select id="pessoas"> — número de pessoas */
+.linha-formulario textarea {                        /* <textarea id="mensagem"> — observações */
+  font-family: var(--font-base);                           /* garante a fonte do site, e não a padrão do navegador */
+  font-size: 1rem;                                          /* tamanho de texto legível dentro do campo */
+  padding: 12px 14px;                                       /* espaço interno do campo, facilita clicar/tocar */
+  border: 2px solid #e5ddd3;                                /* borda bege clara, visível mas discreta */
+  border-radius: 8px;                                       /* cantos levemente arredondados */
+  background: #fff;                                         /* fundo branco, contrasta com o fundo da página */
+  color: var(--color-dark);                                 /* texto digitado usa a cor escura padrão */
+}
+
+.linha-formulario input:focus,                      /* estado de foco (clicado/tab) de qualquer input dos campos */
+.linha-formulario select:focus,                     /* estado de foco do select de "pessoas" */
+.linha-formulario textarea:focus {                  /* estado de foco da textarea de "mensagem" */
+  outline: none;                                            /* remove o contorno azul padrão do navegador */
+  border-color: var(--color-primary);                       /* troca a borda pra vermelho, dando o próprio destaque visual de foco */
+}
+
+.linha-formulario textarea {                        /* especificamente a <textarea id="mensagem"> */
+  resize: vertical;                                          /* só deixa o usuário esticar a altura, nunca a largura */
+}
+
+.formulario-enviar {                                /* <button type="submit" class="botao botao-primario formulario-enviar"> */
+  flex: 1 1 100%;                                            /* ocupa a linha inteira do formulário, igual .linha-formulario-completa */
+  border: none;                                              /* remove a borda padrão de <button> */
+  cursor: pointer;                                           /* mostra a "mãozinha" ao passar o mouse, reforça que é clicável */
+  margin-top: 8px;                                           /* pequeno espaço acima do botão, separando dos campos */
+}
+
+/* ---------- 8. Chamada de ação (CTA) + Rodapé ---------- */
+.botao-realce {                                     /* <a class="botao botao-realce">Peça pelo WhatsApp</a> dentro de .chamada-acao */
+  background: #fff;                                          /* fundo branco, contrasta com o fundo vermelho de .chamada-acao */
+  color: var(--color-primary);                                /* texto vermelho, inverso do .botao-nav */
+}
+
+.chamada-acao {                                     /* <section class="chamada-acao" id="pedir"> — chamada final pro WhatsApp (no mercado, esse tipo de seção é chamado de "CTA": Call To Action) */
+  background: var(--color-primary);                           /* fundo vermelho vibrante, chama atenção como última seção antes do rodapé */
+  text-align: center;                                          /* centraliza título, texto e botão */
+  padding: 80px 24px;                                          /* respiro vertical grande, mesma proporção do .destaque */
+  color: #fff;                                                 /* texto branco padrão, contrasta com o fundo vermelho */
+}
+.chamada-acao h2 {                                  /* o <h2> dentro de .chamada-acao */
+  font-size: 2.2rem;                                           /* mesmo tamanho padrão de título de seção */
+  margin-bottom: 12px;                                         /* espaço menor, pois vem um parágrafo curto logo depois */
+}
+.chamada-acao p {                                   /* o <p> dentro de .chamada-acao */
+  margin-bottom: 28px;                                         /* espaço antes do botão "Peça pelo WhatsApp" */
+  max-width: 500px;                                            /* impede que a frase fique larga demais em telas grandes */
+  margin-left: auto;                                           /* combinado com max-width, centraliza o parágrafo horizontalmente */
+  margin-right: auto;                                          /* mesma função do margin-left, fecha a centralização */
+  color: #ffe3d9;                                              /* vermelho bem clarinho, mais suave que o branco puro do título */
+}
+
+.rodape-site {                                      /* <footer class="rodape-site" id="contato"> */
+  background: var(--color-dark);                              /* mesmo fundo escuro do .cabecalho-site, fecha o "sanduíche" visual da página */
+  color: #e8d9cd;                                              /* bege claro, cor de texto padrão do rodapé */
+  display: flex;                                               /* coloca .rodape-info e .rodape-links lado a lado */
+  flex-wrap: wrap;                                             /* quebra em telas estreitas, em vez de espremer */
+  gap: 20px;                                                   /* espaço entre os blocos do rodapé */
+  align-items: center;                                         /* alinha os blocos verticalmente ao centro */
+  justify-content: space-between;                              /* informações à esquerda, redes sociais à direita */
+  padding: 32px 24px;                                          /* respiro interno do rodapé */
+}
+.rodape-horario {                                   /* <p class="rodape-horario">Todos os dias, das 18h à meia-noite</p> */
+  font-size: 0.85rem;                                          /* texto pequeno, é uma informação complementar */
+  color: #a89485;                                              /* bege mais apagado, reforça que é texto secundário */
+  margin-top: 4px;                                             /* pequeno espaço em relação ao texto acima dele */
+}
+
+.rodape-links {                                     /* <ul class="rodape-links"> — lista de redes sociais (Instagram, Facebook, WhatsApp, TikTok, mapa) */
+  display: flex;                                               /* os <li> ficam lado a lado, em vez de empilhados */
+  flex-wrap: wrap;                                             /* quebra linha em telas estreitas */
+  gap: 20px;                                                   /* espaço entre cada ícone/link */
+}
+.rodape-links a {                                   /* cada <a> dentro dos <li> de .rodape-links (ícone <i> + <span> de texto) */
+  display: flex;                                               /* alinha o ícone <i> e o <span> lado a lado, na mesma linha */
+  align-items: center;                                         /* centraliza verticalmente ícone e texto */
+  gap: 8px;                                                    /* espaço entre o ícone e o texto */
+  font-size: 0.9rem;                                           /* tamanho do texto do link (ex.: "Instagram") */
+}
+.rodape-links a i {                                 /* o <i class="fa-brands fa-instagram"> etc. dentro de cada link (classes da biblioteca Font Awesome, NÃO traduzir) */
+  font-size: 18px;                                             /* tamanho do ícone, um pouco maior que o texto ao lado */
+  color: inherit;                                              /* o ícone herda a cor do <a> pai, em vez de ter cor própria */
+}
+.rodape-links a:hover {                             /* hover em qualquer link de rede social */
+  color: #fff;                                                 /* fica branco puro (ícone junto, por causa do color: inherit acima) */
+}
+
+/* ---------- 9. Responsivo ---------- */
+
+@media (max-width: 780px) {                         /* aplica as regras de dentro só quando a tela tem 780px ou menos */
+  .sobre, .destaque-conteudo {                        /* afeta <section class="sobre"> e <div class="destaque-conteudo"> */
+    flex-direction: column;                             /* muda de lado-a-lado para empilhado (imagem em cima, texto embaixo, ou vice-versa) */
+  }
+}
+@media (max-width: 640px) {                         /* regras específicas pra telas de celular (640px ou menos) */
+  .links-menu {                                       /* <ul class="links-menu"> dentro da barra de navegação */
+    display: none;                                      /* esconde o menu tradicional (o JS mostra via .links-menu-aberto, ver seção 9-mobile abaixo) */
+  }
+  .destaque h1 {                                      /* o <h1> dentro de .destaque */
+    font-size: 2.2rem;                                  /* reduz de 3rem pra 2.2rem, evita quebra estranha em telas estreitas */
+  }
+  .rodape-site {                                      /* <footer class="rodape-site"> */
+    flex-direction: column;                             /* empilha .rodape-info e .rodape-links, em vez de lado a lado */
+    text-align: center;                                 /* centraliza o conteúdo do rodapé empilhado */
+  }
+}
+
+
+/* =====================================================
+   CHAMA BURGER — SUPORTE ÀS FUNCIONALIDADES DE JAVASCRIPT
+   (adicionado depois da fase de CSS -- por isso fica aqui no
+   final, em vez de dentro de alguma etapa em css-por-etapas/)
+   ===================================================== */
+
+/* ---------- Botão de menu mobile (☰) ---------- */
+
+.menu-alternar {                                    /* <button class="menu-alternar" id="menuAlternar">☰</button> na barra de navegação */
+  display: none;                                            /* escondido por padrão — só aparece dentro do @media (max-width:640px) no fim do arquivo */
+  background: none;                                          /* remove o fundo cinza padrão de <button> */
+  border: none;                                              /* remove a borda padrão de <button> */
+  color: #fff;                                               /* ícone ☰ branco, visível sobre o header escuro */
+  font-size: 1.6rem;                                         /* tamanho do símbolo ☰ */
+  cursor: pointer;                                           /* mostra a "mãozinha" ao passar o mouse */
+  line-height: 1;                                            /* evita espaço extra vertical causado pela line-height do body */
+}
+
+/* ---------- Carrinho (resumo fixo no canto) ---------- */
+
+.resumo-carrinho {                                  /* <div class="resumo-carrinho" id="resumoCarrinho"> — resumo do carrinho, atualizado via JS */
+  position: fixed;                                          /* referência é a JANELA do navegador, não o elemento pai — fica sempre visível ao rolar */
+  bottom: 24px;                                             /* distância fixa da parte de baixo da tela */
+  right: 24px;                                              /* distância fixa da lateral direita da tela */
+  background: var(--color-dark);                            /* mesmo fundo escuro do header/footer */
+  color: #fff;                                              /* texto branco sobre o fundo escuro */
+  padding: 14px 22px;                                       /* espaço interno da "pílula" do carrinho */
+  border-radius: 999px;                                     /* formato de pílula, igual aos botões do site */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);               /* sombra forte, ajuda o carrinho a "flutuar" visualmente sobre o conteúdo */
+  font-weight: 600;                                         /* texto em destaque */
+  font-size: 0.95rem;                                       /* tamanho de texto legível no resumo */
+  z-index: 20;                                              /* fica por CIMA até do header (que usa z-index: 10) */
+  display: flex;                                            /* alinha o ícone 🛒 e os textos (contagem/total) lado a lado */
+  align-items: center;                                      /* centraliza verticalmente ícone e texto */
+  gap: 8px;                                                 /* espaço entre ícone, contagem e total */
+}
+.carrinho-icone {                                   /* <span class="carrinho-icone">🛒</span> dentro do resumo-carrinho */
+  font-size: 1.1rem;                                        /* deixa o emoji do carrinho um pouco maior que o texto ao lado */
+}
+
+/* ---------- Botão "Adicionar ao pedido" nos cards ---------- */
+.adicionar-carrinho {                               /* <button class="adicionar-carrinho" data-name="..." data-price="..."> em cada .cardapio-cartao */
+  display: block;                                           /* ocupa a linha toda dentro do card, empurrando o que vier depois pra baixo */
+  width: 100%;                                              /* preenche toda a largura do .cardapio-cartao */
+  margin-top: 14px;                                         /* espaço entre o preço (.preco) e o botão */
+  padding: 10px;                                            /* espaço interno do botão */
+  background: var(--color-dark);                            /* fundo escuro, diferencia do botão amarelo/vermelho do resto do site */
+  color: #fff;                                              /* texto branco sobre o fundo escuro */
+  border: none;                                             /* remove a borda padrão de <button> */
+  border-radius: 8px;                                       /* cantos levemente arredondados, menos que os botões em "pílula" */
+  font-family: var(--font-base);                            /* garante a fonte de texto do site */
+  font-weight: 600;                                         /* texto em destaque */
+  font-size: 0.85rem;                                       /* menor que os botões principais, é uma ação secundária dentro do card */
+  cursor: pointer;                                          /* mostra a "mãozinha" ao passar o mouse */
+  transition: background 0.2s ease;                         /* anima suavemente a troca de cor no hover abaixo */
+}
+.adicionar-carrinho:hover {                         /* hover do botão "Adicionar ao pedido" */
+  background: var(--color-primary);                          /* troca o fundo pra vermelho, reforçando que é clicável */
+}
+
+/* ---------- Confirmação do formulário de reserva ---------- */
+
+.confirmacao-reserva {                              /* <div class="confirmacao-reserva" id="confirmacaoReserva"> após o form */
+  display: none;                                            /* começa escondida — o JS adiciona a classe .mostrar pra exibir junto com o texto */
+  margin-top: 24px;                                         /* espaço entre o formulário e a mensagem de confirmação */
+  padding: 18px 20px;                                       /* espaço interno da caixa de confirmação */
+  background: #e9f7ef;                                      /* verde bem clarinho, associado a "sucesso" */
+  color: #1e7a46;                                           /* verde escuro, contraste legível sobre o fundo claro */
+  border-radius: var(--radius);                             /* mesmo raio de cantos padrão do site */
+  font-weight: 500;                                         /* texto com um pouco mais de peso que o padrão */
+}
+.confirmacao-reserva.mostrar {                      /* mesma div acima, mas quando o JS adiciona a classe "mostrar" */
+  display: block;                                           /* torna a caixa visível (sobrescreve o display: none de cima) */
+}
+
+/* ---------- Prévia da foto (FileReader) ---------- */
+
+.previa-foto[hidden] {                              /* <img id="previaFoto" class="previa-foto" hidden> — seletor de atributo, mira o estado inicial */
+  display: none;                                            /* reforça o "hidden" do HTML, que o reset (img { display:block }) lá em cima sobrescreveria */
+}
+.previa-foto {                                      /* a mesma <img id="previaFoto"> quando o atributo "hidden" é removido pelo JS */
+  display: block;                                           /* volta a aparecer normalmente depois que o FileReader carrega a imagem escolhida */
+  margin-top: 12px;                                         /* espaço entre o campo de arquivo e a prévia da foto */
+  max-width: 200px;                                         /* limita o tamanho da prévia, não deixa ela gigante */
+  border-radius: 8px;                                       /* cantos levemente arredondados */
+  border: 2px solid #e5ddd3;                                /* borda bege clara, igual à dos campos do formulário */
+}
+
+/* ---------- Menu mobile: mostra o botão, abre a lista em dropdown ---------- */
+@media (max-width: 640px) {                         /* mesmo breakpoint da seção 9, mas específico pras funcionalidades de JS */
+  .menu-alternar {                                   /* <button id="menuAlternar"> na barra de navegação */
+    display: block;                                          /* agora aparece, pois a tela é estreita o suficiente pra precisar do botão ☰ */
+  }
+
+  .links-menu {                                      /* <ul id="linksMenu"> — reforça o display:none já definido na seção 9 */
+    display: none;                                           /* continua escondido por padrão em telas pequenas */
+  }
+
+  .links-menu.links-menu-aberto {                    /* mesma <ul id="linksMenu">, mas quando o JS adiciona a classe "links-menu-aberto" ao clicar no ☰ */
+    display: flex;                                           /* volta a aparecer, agora como dropdown */
+    flex-direction: column;                                  /* empilha os links na vertical, em vez de lado a lado */
+    position: absolute;                                      /* sai do fluxo normal, flutua por cima do conteúdo abaixo do header */
+    top: 100%;                                               /* posiciona logo abaixo do .cabecalho-site (referência: position: sticky do header) */
+    left: 0;                                                 /* encosta na borda esquerda da tela */
+    right: 0;                                                /* encosta na borda direita da tela (com left:0, estica 100% de largura) */
+    background: var(--color-dark);                            /* mesmo fundo escuro do header, mantém a identidade visual do dropdown */
+    padding: 20px 24px;                                       /* espaço interno do dropdown */
+    gap: 16px;                                                /* espaço entre cada link empilhado */
+  }
 }

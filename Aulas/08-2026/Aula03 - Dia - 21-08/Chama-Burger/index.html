@@ -1,29 +1,32 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chama Burger</title>
+    <title>Chama Burger — Burger na brasa, do jeito certo</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--CORS = Cross-Origin Resource Sharing ("compartilhamento de recursos entre origens diferentes"). Se qualquer um desses três for diferente, já é uma "origem diferente".
+
+  Como o CORS libera isso:
+
+  O servidor que tem o recurso (a fonte, a API, etc.) pode responder com um cabeçalho HTTP dizendo "pode, esse outro domínio tem permissão":-->
 
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Font Awesome: biblioteca de ícones prontos, usados como <i class="fa-..."></i> -->
+    <!--Site oficial : https://fontawesome.com/
+   (aba "Icons") e ver o nome exato da classe (ex: fa-brands fa-whatsapp) pra usar no HTML.-->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/icons/burger-bacon.svg"
-      type="image/x-icon"
-    />
   </head>
   <body>
     <header class="cabecalho-site">
@@ -44,8 +47,9 @@
     </header>
 
     <main>
+      <!-- DESTAQUE (hero) -->
       <section class="destaque">
-        <div class="destaque-conteudo destaque-imagem">
+        <div class="destaque-conteudo">
           <div class="destaque-texto">
             <h1>Burger de verdade,<br />na brasa.</h1>
             <p>
@@ -54,10 +58,12 @@
             </p>
             <a href="#cardapio" class="botao botao-primario">Ver cardápio</a>
           </div>
-          <img
-            src="assets/icons/burger-classico.svg"
-            alt="Burger Clássico na brasa"
-          />
+          <div class="destaque-imagem">
+            <img
+              src="assets/icons/burger-classico.svg"
+              alt="Ilustração de um hambúrguer clássico"
+            />
+          </div>
         </div>
       </section>
 
@@ -138,11 +144,14 @@
         </div>
       </section>
 
+      <!-- SOBRE -->
       <section class="sobre" id="sobre">
         <div class="sobre-imagem">
           <img
             src="assets/images/sobre-burger.jpg"
-            alt="Preparo do hambúrguer no Chama Burger"
+            alt="Cozinha do Chama Burger"
+            width="800"
+            height="500"
           />
         </div>
         <div class="sobre-texto">
@@ -158,6 +167,7 @@
         </div>
       </section>
 
+      <!-- DEPOIMENTOS -->
       <section class="depoimentos" id="depoimentos">
         <h2>Quem prova, volta</h2>
         <div class="depoimentos-cartoes">
@@ -171,7 +181,7 @@
               "Melhor bacon burger da região, sem exagero. O ponto da carne é
               sempre perfeito."
             </p>
-            <p class="autor">Pedro Costa <span> — cliente frequente</span></p>
+            <p class="autor">Pedro Costa <span>— cliente frequente</span></p>
           </article>
           <article class="depoimento">
             <img
@@ -205,14 +215,14 @@
         <p>
           Prefere comer no salão? Deixe seus dados que confirmamos por telefone.
         </p>
-        <form class="formulario-reserva" id="formulario-reserva">
+        <form class="formulario-reserva" id="formularioReserva">
           <div class="linha-formulario">
             <label for="nome">Nome</label>
             <input
               type="text"
               id="nome"
               name="nome"
-              placeholder="Seu Nome"
+              placeholder="Seu nome"
               required
             />
           </div>
@@ -222,7 +232,7 @@
               type="tel"
               id="telefone"
               name="telefone"
-              placeholder="(99) 99999-9999"
+              placeholder="(11) 99999-9999"
               required
             />
           </div>
@@ -232,50 +242,51 @@
           </div>
           <div class="linha-formulario">
             <label for="pessoas">Número de pessoas</label>
-            <select name="pessoas" id="pessoas">
+            <select id="pessoas" name="pessoas">
               <option value="1">1 pessoa</option>
-              <option value="2">2 pessoas</option>
               <option value="3">3 pessoas</option>
               <option value="4">4 pessoas</option>
-              <option value="5+">5 pessoas</option>
+              <option value="5+">5 ou mais</option>
             </select>
           </div>
           <div class="linha-formulario linha-formulario-completa">
-            <label for="mensagem">Observacoes (opcional)</label>
+            <label for="mensagem">Observações (opcional)</label>
             <textarea
-              name="mensagem"
               id="mensagem"
+              name="mensagem"
               rows="3"
-              placeholder="Alguma preferencia ou restricao alimentar?"
+              placeholder="Alguma preferência ou restrição alimentar?"
             ></textarea>
           </div>
           <div class="linha-formulario linha-formulario-completa">
-            <label for="foto">Foto de referencia(opcional)</label>
+            <label for="foto">Foto de referência (opcional)</label>
             <input type="file" id="foto" name="foto" accept="image/*" />
-            <img id="previa-foto" class="previa-foto" hidden />
+
+            <img
+              id="previaFoto"
+              class="previa-foto"
+              alt="Prévia da imagem selecionada"
+              hidden
+            />
           </div>
           <button type="submit" class="botao botao-primario formulario-enviar">
-            Enviar reserva
+            Confirmar reserva
           </button>
         </form>
-        <div class="confirmacao-acao" id="confirmacao-acao"></div>
+
+        <div class="confirmacao-reserva" id="confirmacaoReserva"></div>
       </section>
-      <section>
-        <section class="chamada-acao" id="pedir">
-          <h2>Bateu a fome?</h2>
-          <p>
-            Peça pelo delivery ou venha comer no salão — abrimos todos os dias,
-            das 18h à meia-noite.
-          </p>
-          <a
-            href="https://wa.me/5511989017556"
-            class="botao botao-realce"
-            target="_blank"
-            >Peça pelo WhatsApp</a
-          >
-        </section>
+
+      <section class="chamada-acao" id="pedir">
+        <h2>Bateu a fome?</h2>
+        <p>
+          Peça pelo delivery ou venha comer no salão — abrimos todos os dias,
+          das 18h à meia-noite.
+        </p>
+        <a href="#" class="botao botao-realce">Peça pelo WhatsApp</a>
       </section>
     </main>
+
     <footer class="rodape-site" id="contato">
       <div class="rodape-info">
         <p>
@@ -286,43 +297,39 @@
 
       <ul class="rodape-links">
         <li>
-          <a
-            href="https://www.instagram.com/luizgabryel27"
-            target="_blank"
-            aria-label="Instagram"
+          <a href="#" aria-label="Instagram"
             ><i class="fa-brands fa-instagram"></i><span>Instagram</span></a
           >
         </li>
         <li>
-          <a href="#" aria-label="Facebook" target="_blank"
+          <a href="#" aria-label="Facebook"
             ><i class="fa-brands fa-facebook"></i><span>Facebook</span></a
           >
         </li>
         <li>
-          <a
-            href="https://wa.me/5511989017556"
-            aria-label="WhatsApp"
-            target="_blank"
+          <a href="#" aria-label="WhatsApp"
             ><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a
           >
         </li>
         <li>
-          <a href="#" aria-label="TikTok" target="_blank"
+          <a href="#" aria-label="TikTok"
             ><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a
           >
         </li>
         <li>
-          <a href="#" aria-label="Ver no mapa" target="_blank"
+          <a href="#" aria-label="Ver no mapa"
             ><i class="fa-solid fa-location-dot"></i><span>Ver no mapa</span></a
           >
         </li>
       </ul>
     </footer>
+
     <div class="resumo-carrinho" id="resumoCarrinho">
       <span class="carrinho-icone">🛒</span>
       <span id="carrinhoQuantidade">0</span> itens ·
       <span id="carrinhoTotal">R$ 0,00</span>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
