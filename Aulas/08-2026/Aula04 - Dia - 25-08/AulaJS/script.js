@@ -104,7 +104,7 @@ let nu1 = document.getElementById("numero1");
 let nu2 = document.getElementById("numero2");
 nu1.innerText = "Primeiro numero: " + n1;
 nu2.innerText = "Segundo numero: " + n2;
-h1.innerText = "Resultado: " + soma;~
+h1.innerText = "Resultado: " + soma;
 const idade = 17;
 if (idade >= 18) {
   console.log("Maior idade");
