@@ -105,17 +105,36 @@ let numero7 = Number(prompt("Digite o segundo numero (Atividade 8)"));
 let numero8 = Number(prompt("Digite o terceiro numero (Atividade 8)"));
 
 if (numero6 >= numero7 && numero6 >= numero8) {
-    console.log("Numero " + numero6 + " e maior");
+  console.log("Numero " + numero6 + " e maior");
 } else if (numero7 >= numero6 && numero7 >= numero8) {
-    console.log("Numero " + numero7 + " e maior");
+  console.log("Numero " + numero7 + " e maior");
 } else {
-    console.log("Numero " + numero8 + " e maior");
+  console.log("Numero " + numero8 + " e maior");
 }
 
 console.log("Fim Atividade 8");
 
 //9. Desconto em compras
-let
+console.log("Atividade 9");
+
+let valorCompra = Number(
+  prompt("Digite o valor total da compra: (Atividade 9)"),
+);
+
+if (valorCompra > 100) {
+  let valorComDesconto = valorCompra * 0.1;
+  alert(
+    "Você ganhou 10% de desconto! Valor final: R$ " +
+      valorComDesconto.toFixed(2),
+  );
+} else {
+  alert(
+    "Sua compra não atingiu o valor minimo. Valor final: R$ " +
+      valorCompra.toFixed(2),
+  );
+}
+console.log("Fim Atividade 9");
+
 //10. Sistema de login
 console.log("Atividade 10");
 
@@ -131,3 +150,74 @@ if (usuario == usuarioTentativa && senha == senhaTentativa) {
   console.log("Acesso negado");
 }
 console.log("Fim Atividade 10");
+
+//11 Classificação de triângulos
+console.log("Atividade 11");
+
+const lado1 = Number(prompt("Digite o primeiro lado"))
+const lado2 = Number(prompt("Digite o segundo lado"))
+const lado3 = Number(prompt("Digite o terceiro lado"))
+
+if((lado1+lado2) < lado3 ){
+    alert("nao e um triangulo")
+}else if(lado1==lado2 && lado2==lado3 && lado1==lado3){
+    alert("triangulo equilatero")
+}else if(lado1==lado2 || lado2==lado3 || lado1==lado3){
+    alert("triangulo isosceles")
+}else{
+    alert("traingulo escaleno")
+}
+
+console.log("Fim Atividade 11");
+
+//12 Conversão de notas (Conceitos)
+
+console.log("Atividade 13");
+
+let nota2 = Number(prompt("Digite sua nota: (Atividade 12)"));
+if (nota2 < 60) {
+  console.log("F");
+} else if (nota2 >= 60 && nota2 <= 69) {
+  console.log("D");
+} else if (nota2 >= 70 && nota2 <= 79) {
+  console.log("C");
+} else if (nota2 >= 80 && nota2 <= 89) {
+  console.log("B");
+} else {
+  console.log("A");
+}
+
+console.log("Fim Atividade 13");
+
+//14 Cálculo de IMC
+console.log("Atividade 14");
+
+let peso = Number(prompt("Qual o seu peso:"));
+let altura = Number(prompt("Qual sua altura:"));
+let altura2 = altura ** 2;
+let imc = peso / altura2;
+
+console.log("Seu IMC é: " + imc.toFixed(2));
+
+if (imc < 18.5) {
+  console.log("Abaixo do peso");
+} else if (imc >= 18.5 && imc < 25) {
+  console.log("Peso normal");
+} else if (imc >= 25 && imc < 30) {
+  console.log("Sobrepeso");
+} else {
+  console.log("Obesidade");
+}
+
+console.log("Fim Atividade 14");
+
+//15. Ano Bissexto
+let ano = Number(prompt("Me diga uma data: (Atividade 15)"));
+let bissexto = (ano % 4 === 0 && ano % 100 !== 0) || ano % 400 === 0;
+
+if (bissexto) {
+  console.log("É bissexto");
+} else {
+  console.log("Não é bissexto");
+}
+
