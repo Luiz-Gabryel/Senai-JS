@@ -154,18 +154,18 @@ console.log("Fim Atividade 10");
 //11 Classificação de triângulos
 console.log("Atividade 11");
 
-const lado1 = Number(prompt("Digite o primeiro lado"))
-const lado2 = Number(prompt("Digite o segundo lado"))
-const lado3 = Number(prompt("Digite o terceiro lado"))
+const lado1 = Number(prompt("Digite o primeiro lado"));
+const lado2 = Number(prompt("Digite o segundo lado"));
+const lado3 = Number(prompt("Digite o terceiro lado"));
 
-if((lado1+lado2) < lado3 ){
-    alert("nao e um triangulo")
-}else if(lado1==lado2 && lado2==lado3 && lado1==lado3){
-    alert("triangulo equilatero")
-}else if(lado1==lado2 || lado2==lado3 || lado1==lado3){
-    alert("triangulo isosceles")
-}else{
-    alert("traingulo escaleno")
+if (lado1 + lado2 < lado3) {
+  alert("nao e um triangulo");
+} else if (lado1 == lado2 && lado2 == lado3 && lado1 == lado3) {
+  alert("triangulo equilatero");
+} else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3) {
+  alert("triangulo isosceles");
+} else {
+  alert("traingulo escaleno");
 }
 
 console.log("Fim Atividade 11");
@@ -175,7 +175,9 @@ console.log("Fim Atividade 11");
 console.log("Atividade 13");
 
 let nota2 = Number(prompt("Digite sua nota: (Atividade 12)"));
-if (nota2 < 60) {
+if (nota2 > 100 || nota2 < 0) {
+  console.log("Nota inválida! Digite um valor entre 0 e 100.");
+} else if (nota2 < 60) {
   console.log("F");
 } else if (nota2 >= 60 && nota2 <= 69) {
   console.log("D");
@@ -220,4 +222,3 @@ if (bissexto) {
 } else {
   console.log("Não é bissexto");
 }
-
