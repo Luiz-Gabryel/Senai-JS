@@ -218,7 +218,7 @@ let ano = Number(prompt("Me diga uma data: (Atividade 15)"));
 let bissexto = (ano % 4 === 0 && ano % 100 !== 0) || ano % 400 === 0;
 
 if (bissexto) {
-  console.log("É bissexto");
+  console.log(bissexto + " É bissexto");
 } else {
-  console.log("Não é bissexto");
+  console.log(bissexto + " Não é bissexto");
 }
