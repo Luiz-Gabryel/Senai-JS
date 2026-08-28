@@ -188,9 +188,10 @@ if (Number.isNaN(numero)) {
   console.log(`\n TABUADA do ${numero} \n`);
 }
 let resultado;
-setTimeout(() => {
-  for (let i = 1; i <= 10; i++) {
+
+for (let i = 1; i <= 10; i++) {
+  setTimeout(() => {
     resultado = numero * i;
     console.log(`${numero} X ${i} = ${resultado}`);
-  }
-}, i * 2000);
+  }, i * 2000);
+}
