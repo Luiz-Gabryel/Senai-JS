@@ -180,3 +180,17 @@ gerarPiramede(5);
 
 
 */
+
+let numero = Number(prompt("Qual tabuada: "));
+if (Number.isNaN(numero)) {
+  console.log("Isso nao e um numero");
+} else {
+  console.log(`\n TABUADA do ${numero} \n`);
+}
+let resultado;
+setTimeout(() => {
+  for (let i = 1; i <= 10; i++) {
+    resultado = numero * i;
+    console.log(`${numero} X ${i} = ${resultado}`);
+  }
+}, i * 2000);
