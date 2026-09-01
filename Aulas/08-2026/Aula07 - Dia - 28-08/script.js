@@ -187,5 +187,4 @@ gerarPiramede(5);
 
 
 */
-
-
+console.log("Fim do script");
