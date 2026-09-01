@@ -139,14 +139,23 @@ console.log("O fatorial e : " + fatorial);
 
 //9. Inverter número (Nível Avançado)
 
-
+// minha forma
 const numeros = [1, 2, 3, 4, 5];
 numeros.push(Number(prompt("Ajuda")));
 numeros.reverse();
 console.log(numeros);
 
-//Esta com bugs
 
+//forma do professor
+let numero = Number(prompt("Digite um numero: "));
+let invertido = 0;
+
+while (numero > 0) {
+    let digito = numero % 10;
+    invertido = invertido * 10 + digito;
+    numero = Math.floor(numero / 10);
+}
+console.log("O numero invertido e: " + invertido);
 
 //10. Números perfeitos até 1000 (Nível Avançado)
 
@@ -187,4 +196,3 @@ gerarPiramede(5);
 
 
 */
-console.log("Fim do script");
