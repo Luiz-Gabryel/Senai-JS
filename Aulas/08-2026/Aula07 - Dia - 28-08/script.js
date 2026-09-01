@@ -14,16 +14,20 @@ console.log("cabo a graca");
 
 // 2. Tabuada de um número (Nível Básico)
 
+
 let numero = Number(prompt("Qual tabuada: "));
 if (Number.isNaN(numero)) {
   console.log("Isso nao e um numero");
 } else {
   console.log(`\n TABUADA do ${numero} \n`);
 }
+let resultado;
 
-for (i = 1; i <= 10; i++) {
-  const resultado = numero * i;
-  console.log(`${numero} X ${i} = ${resultado}`);
+for (let i = 1; i <= 10; i++) {
+  setTimeout(() => {
+    resultado = numero * i;
+    console.log(`${numero} X ${i} = ${resultado}`);
+  }, i * 2000);
 }
 
 
@@ -148,6 +152,9 @@ console.log(numeros);
 
 
 
+const numerosPerfeitos = encontrarNumerosPerfeitos();
+console.log('Números perfeitos até 1000:', numerosPerfeitos);
+
 
 // EXERCÍCIO EXTRA - Metade de uma piramede
 
@@ -181,17 +188,4 @@ gerarPiramede(5);
 
 */
 
-let numero = Number(prompt("Qual tabuada: "));
-if (Number.isNaN(numero)) {
-  console.log("Isso nao e um numero");
-} else {
-  console.log(`\n TABUADA do ${numero} \n`);
-}
-let resultado;
 
-for (let i = 1; i <= 10; i++) {
-  setTimeout(() => {
-    resultado = numero * i;
-    console.log(`${numero} X ${i} = ${resultado}`);
-  }, i * 2000);
-}
