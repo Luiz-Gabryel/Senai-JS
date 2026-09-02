@@ -99,31 +99,80 @@ console.log(resultado1)
 console.log(resultado)
 
 console.log(`seu total e: R$ ${totalPagar.toFixed(2)}`)
-*/
 
+
+// atividade final
 let pedido1 = prompt("Digite o nome do pedido 1: ");
-let preco1 = parseFloat(prompt("Digite o preço do pedido 1: "));
-let quantidade1 = parseInt(prompt("Digite a quantidade do pedido 1: "));
+let preco1;
+do {
+    preco1 = Number(prompt("Digite o preço do pedido 1: "));
+    if (Number.isNaN(preco1) || preco1 <= 0) {
+        alert("Preço nao valido. Digite um número maior que 0.");
+    }
+} while (Number.isNaN(preco1) || preco1 <= 0);
+let quantidade1;
+do {
+    quantidade1 = Number(prompt("Digite a quantidade do pedido 1: "));
+    if (Number.isNaN(quantidade1) || quantidade1 <= 0) {
+        alert("Quantidade inválida. Digite um número inteiro maior que 0.");
+    }
+} while (Number.isNaN(quantidade1) || quantidade1 <= 0);
 
 let pedido2 = prompt("Digite o nome do pedido 2: ");
-let preco2 = parseFloat(prompt("Digite o preço do pedido 2: "));
-let quantidade2 = parseInt(prompt("Digite a quantidade do pedido 2: "));
+let preco2;
+do {
+    preco2 = Number(prompt("Digite o preço do pedido 2: "));
+    if (Number.isNaN(preco2) || preco2 <= 0) {
+        alert("Preço nao valido. Digite um número maior que 0.");
+    }
+} while (Number.isNaN(preco2) || preco2 <= 0);
+let quantidade2;
+do {
+    quantidade2 = Number(prompt("Digite a quantidade do pedido 2: "));
+    if (Number.isNaN(quantidade2) || quantidade2 <= 0) {
+        alert("Quantidade inválida. Digite um número inteiro maior que 0.");
+    }
+} while (Number.isNaN(quantidade2) || quantidade2 <= 0);
 
 let pedido3 = prompt("Digite o nome do pedido 3: ");
-let preco3 = parseFloat(prompt("Digite o preço do pedido 3: "));
-let quantidade3 = parseInt(prompt("Digite a quantidade do pedido 3: "));
+let preco3;
+do {
+    preco3 = Number(prompt("Digite o preço do pedido 3: "));
+    if (Number.isNaN(preco3) || preco3 <= 0) {
+        alert("Preço nao valido. Digite um número maior que 0.");
+    }
+} while (Number.isNaN(preco3) || preco3 <= 0);
+let quantidade3;
+do {
+    quantidade3 = Number(prompt("Digite a quantidade do pedido 3: "));
+    if (Number.isNaN(quantidade3) || quantidade3 <= 0) {
+        alert("Quantidade inválida. Digite um número inteiro maior que 0.");
+    }
+} while (Number.isNaN(quantidade3) || quantidade3 <= 0);
 
 let pedido4 = prompt("Digite o nome do pedido 4: ");
-let preco4 = parseFloat(prompt("Digite o preço do pedido 4: "));
-let quantidade4 = parseInt(prompt("Digite a quantidade do pedido 4: "));
+let preco4;
+do {
+    preco4 = Number(prompt("Digite o preço do pedido 4: "));
+    if (Number.isNaN(preco4) || preco4 <= 0) {
+        alert("Preço nao valido. Digite um número maior que 0.");
+    }
+} while (Number.isNaN(preco4) || preco4 <= 0);
+let quantidade4;
+do {
+    quantidade4 = Number(prompt("Digite a quantidade do pedido 4: "));
+    if (Number.isNaN(quantidade4) || quantidade4 <= 0) {
+        alert("Quantidade inválida. Digite um número inteiro maior que 0.");
+    }
+} while (Number.isNaN(quantidade4) || quantidade4 <= 0);
 
-if (
-    Number.isNaN(preco1) || Number.isNaN(preco2) || Number.isNaN(preco3) || Number.isNaN(preco4) ||
-    Number.isNaN(quantidade1) || Number.isNaN(quantidade2) || Number.isNaN(quantidade3) || Number.isNaN(quantidade4)
-) {
-    console.log("Isso não são números, por favor tente digitar números.");
-    alert("Isso não são números, por favor tente digitar números.");
-}
+// if (
+//     Number.isNaN(preco1) || Number.isNaN(preco2) || Number.isNaN(preco3) || Number.isNaN(preco4) ||
+//     Number.isNaN(quantidade1) || Number.isNaN(quantidade2) || Number.isNaN(quantidade3) || Number.isNaN(quantidade4)
+// ) {
+//     console.log("Isso não são números, por favor tente digitar números.");
+//     alert("Isso não são números, por favor tente digitar números.");
+// }
 
 const pedidos = [
     { pedido: pedido1, preco: preco1, quantidade: quantidade1 },
@@ -150,3 +199,56 @@ for (const pedido of pedidos) {
 
 console.log(maiorTotal);
 console.log(`Seu total é: R$ ${totalPagar.toFixed(2)}`);
+
+//outro
+
+//break -> para de percorrer a lista
+
+const numeros = [ 5,12,8,2,16,19,25]
+
+const procurado = 19
+for (const num of numeros){
+    console.log(num)
+    if (num === procurado){
+        console.log("achado")
+        break
+    }
+}
+console.log("Terminou")
+
+//continue -> pular a etapa atual
+
+console.log("numeros impas de 1 a 10")
+
+for (let numero = 0; numero < 10; numero++) {
+    if (numero % 2 ==0){
+        continue
+    }
+    console.log(numero)
+
+}
+
+
+const nomes = ["Luiz", "Gabryel", "Cythia", "Gabriel", "Maria", "João"]
+nomes.reverse()
+console.log(nomes)
+
+
+// outro
+const alunos = [
+    {nome: "Luiz", nota: 5},
+    {nome: "Maria", nota: 8},
+    {nome: "Erick", nota: 7},
+    {nome: "Leo", nota: 9}]
+
+for (const aluno of alunos) {
+    if (aluno.nota >= 7) {
+        console.log(`Aluno ${aluno.nome} aprovado com nota ${aluno.nota}`)
+
+    } else {
+        continue;
+    }
+
+}
+*/
+
