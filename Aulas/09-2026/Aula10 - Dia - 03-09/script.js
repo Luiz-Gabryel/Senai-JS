@@ -1,12 +1,13 @@
-function  saudacao() {
-        console.log("Ola, seja bem vindo")
+const elemento = document.getElementById('filme-principal')
+console.log(elemento)
+console.log(elemento.tagName)
+
+function selecionarPorId(){
+    const tituloFilme = document.getElementById('titulo-filme')
+    console.log(tituloFilme)
+    console.log(tituloFilme.tagName)
+    console.log(tituloFilme.textContent)
+    console.log(tituloFilme.id)
+    tituloFilme.classList.add('elemento-selecionado')
 }
 
-saudacao()
-
-function chamarnome(){
-    let nome = prompt("Qual o seu nome: ")
-    alert(`seu nome e ${nome}`)
-}
-
-chamarnome()
